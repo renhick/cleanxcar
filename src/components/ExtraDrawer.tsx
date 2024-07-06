@@ -14,67 +14,68 @@ import {
 import MaxWidthWrapper from "./MaxWidthWrapper"
 import { ScrollArea } from "./ui/scroll-area";
 import { ArrowRight } from "lucide-react";
+import { Separator } from "./ui/separator";
 
 
 const extraService = [
     {
         id: 1,
         header: "Shampoonieren der Sitze",
-        price: "99,95",
+        price: "ab 99,95€",
         text: "Reinigung textiler Oberflächen mittels Sprühextraktionssauger",
     },
     {
         id: 2,
         header: "Lederreinugung & Pflege",
-        price: "99,95",
+        price: "ab 99,95€",
         text: "Intensive Reinigung der Ledersitze & Pflege",
     },
     {
         id: 3,
         header: "Ozonbehandlung",
-        price: "79,95",
+        price: "ab 79,95€",
         text: "Der besondere Frischekick gegen Gerüche & Keime",
     },
     {
         id: 4,
         header: "Tierhaarentfernung",
-        price: "59,95",
+        price: "ab 59,95€",
         text: "Entfernung festsitzender Tierhaare im kompletten Innenraum",
     },
     {
         id: 5,
         header: "Motorreinigung",
-        price: "79,95",
+        price: "ab 79,95€",
         text: "Entfernung von Staub, Schmutz & Ölrückständen",
     },
     {
         id: 6,
         header: "Cabriodach-Imprägnierung",
-        price: "179,95",
+        price: "ab 179,95€",
         text: "Vermeidung von teuren Reparaturkosten durch den Schutz Ihres Verdeckstoffes",
     },
     {
         id: 7,
         header: "Scheibenversiegelung",
-        price: "95,95",
+        price: "ab 95,95€",
         text: "Verbesserte Sicht durch Wasser und Schmutzabweisende Versiegelung",
     },
     {
         id: 8,
         header: "Felgen-Versiegelung",
-        price: "49,95/Felge *",
+        price: "49,95€/Felge",
         text: "Verbesserte Sicht durch Wasser und Schmutzabweisende Versiegelung",
     },
     {
         id: 9,
         header: "Trockeneis-Reinigung",
-        price: "auf Anfrage *",
+        price: "auf Anfrage",
         text: "Das wie-neu- Erlebnis mit unserer schonenden & Umweltfreundlichen Trockeneis-Reinigung",
     },
     {
         id: 10,
         header: "Motorradaufbereitung",
-        price: "199",
+        price: "ab 199€",
         text: "Ihr Bike mit strahlendem Glanz, Schutz vor Witterungseinflüssen & Wertsteigerung",
     },
 ];
@@ -104,10 +105,10 @@ const ExtraDrawer = () => {
                                 <div key={item.id} className="border border-input  rounded-md p-5 ">
                                     <div className='flex justify-between items-center'>
                                         <p className='font-semibold'>{item.header}</p>
-                                        <p className='text-muted-foreground'>ab {item.price}€</p>
+                                        <p className='text-muted-foreground'>{item.price}</p>
                                     </div>
                                     <div>
-                                        <p className='text-muted-foreground'>{item.text}</p>
+                                        <p className='text-muted-foreground mt-1'>{item.text}</p>
                                     </div>
                                 </div>
                             ))}
