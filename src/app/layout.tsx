@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "CleanXCar Fahrzeugaufbereitung",
-  description: "CleanXCar Fahrzeugaufbereitungs Service in Kapellen Drusweiler 76889.",
+  description: "CleanXCar Fahrzeugaufbereitungs Service in Kapellen Drusweiler 76889",
 };
 
 export default function RootLayout({
