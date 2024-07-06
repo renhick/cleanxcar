@@ -8,12 +8,11 @@ import { ArrowRight, Navigation } from 'lucide-react'
 
 const Footer = () => {
     return (
-        <footer className='w-full mt-20 p-10 bg-gradient-to-b from-primary to-[#022347]'>
+        <footer className='w-full mt-20 pt-10 p-5 md:p-10 pb-10 bg-gradient-to-b from-primary to-[#022347]'>
             <MaxWidthWrapper>
                 <div className='grid grid-cols-1 lg:grid-cols-2  gap-2 md:gap-20'>
                     <div className='text-white'>
                         <Image className='w-44 h-auto brightness-200' src="/logo_2.png" width={1308} height={402} alt='cxc Logo'></Image>
-                        <Separator className='mt-5 bg-white/10'></Separator>
                         <p className='text-sm text-white/60 mt-5'>Natürliche Brillanz, wie am ersten Tag entdeckt. Gönnen Sie Ihrem Fahrzeug eine Aufbereitung, die seinen Glanz wieder aufleben lässt.</p>
                         <div className='flex items-center gap-2 mt-5'>
                             <Link href="/">

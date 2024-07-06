@@ -54,7 +54,7 @@ const Extras = () => {
                         </div>
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-2 mt-5 z-50'>
                             {extraService.map((item) => (
-                                <div key={item.id} className="border border-white/20  rounded-md p-5 bg-white/20 bg-[url('/footer-grid.svg')] bg-cover bg-center">
+                                <div key={item.id} className="border border-white/20  rounded-md p-5 bg-white/20 bg-[url('/footer-grid.svg')] bg-cover bg-center -webkit-backdrop-filter -webkit-backdrop-blur-md backdrop-blur-md">
                                     <div className='flex justify-between items-center'>
                                         <p className='font-semibold text-white'>{item.header}</p>
                                         <p className='text-white/60'>ab {item.price}€</p>

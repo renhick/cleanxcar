@@ -134,11 +134,13 @@ const Navbar = () => {
                         <Link href="/">
                             <Button variant="ghost">
                                 <Film className='w-5 h-5 text-primary' />
+                                <p className='sr-only'>Instagram</p>
                             </Button>
                         </Link>
                         <Link href="/">
                             <Button variant="ghost">
                                 <Film className='w-5 h-5 text-primary' />
+                                <p className='sr-only'>Whatsapp</p>
                             </Button>
                         </Link>
                     </div>

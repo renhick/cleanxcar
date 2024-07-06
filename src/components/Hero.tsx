@@ -12,7 +12,10 @@ const Hero = () => {
                 <section className='mt-40'>
                     <div className='flex md:items-center flex-col'>
                         <div className='md:text-center flex items-center flex-col'>
-                            <h1 className='text-4xl md:text-6xl lg:text-7xl font-semibold text-gray-800 break-words'><span className='text-primary'>CleanXCar</span> - Professionelle Fahrzeugaufbereitung</h1>
+                            <h1 className='text-4xl md:text-6xl lg:text-7xl font-bold text-gray-800 break-words'>
+                                <span className='text-primary'>CleanXCar</span> <span className='md:inline hidden'>-</span> Professionelle Fahrzeug<span className='md:hidden'>-</span><br className='md:hidden' />aufbereitung
+                            </h1>
+
                             <p className='mt-5 text-muted-foreground max-w-prose'>Ihr zuverlässiger Partner in Sachen Fahrzeugpflege. Gründliche Innenreinigung, glänzende Außenaufbereitung. Für ein strahlend sauberes Auto.</p>
                         </div>
                         <div className='flex items-center gap-2 mt-5'>
@@ -57,7 +60,7 @@ const Hero = () => {
                                 <h1 className='text-3xl font-bold text-white'>130+</h1>
                                 <p className='text-white/50'>5 Sterne Bewertungen</p>
                             </div>
-                            
+
                         </div>
                     </MaxWidthWrapper>
                 </div>
