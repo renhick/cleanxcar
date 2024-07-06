@@ -107,13 +107,13 @@ const Navbar = () => {
                                                     </a>
                                                 </NavigationMenuLink>
                                             </li>
-                                            <ListItem href="/docs" title="Introduction">
+                                            <ListItem href="/" title="Introduction">
                                                 Re-usable components built using Radix UI and Tailwind CSS.
                                             </ListItem>
-                                            <ListItem href="/docs/installation" title="Installation">
+                                            <ListItem href="/" title="Installation">
                                                 How to install dependencies and structure your app.
                                             </ListItem>
-                                            <ListItem href="/docs/primitives/typography" title="Typography">
+                                            <ListItem href="/" title="Typography">
                                                 Styles for headings, paragraphs, lists...etc
                                             </ListItem>
                                         </ul>
@@ -121,7 +121,7 @@ const Navbar = () => {
                                 </NavigationMenuItem>
 
                                 <NavigationMenuItem>
-                                    <Link href="/docs" legacyBehavior passHref>
+                                    <Link href="/" legacyBehavior passHref>
                                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                                             Über uns
                                         </NavigationMenuLink>
