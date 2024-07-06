@@ -60,7 +60,7 @@ const components: { title: string; href: string; description: string }[] = [
 const Navbar = () => {
     return (
 
-        <div className='pt-5 border-b border-b-black/10'>
+        <div className='fixed bg-white w-full top-0 left-0 pt-5 border-b border-b-black/10 z-[100]'>
             <MaxWidthWrapper>
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-5 pb-5'>
                     <div className='hidden md:block'>

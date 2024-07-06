@@ -11,8 +11,7 @@ const data = [
     {
         id: 1,
         header: "Innenraumaufbereitung",
-        price: "149",
-        text: "Erleben Sie Sauberkeit und Frische im Innenraum Ihres Fahrzeugs. Unsere Leistungen umfassen gründliche Reinigung, Geruchsbeseitigung, Polsterpflege, Scheibenreinigung und Desinfektion.",
+        info: "Autopflege für makellosen Innenraum.",
         src: "/services/interiour.jpg",
         width: 2500,
         height: 1667,
@@ -20,8 +19,7 @@ const data = [
     {
         id: 2,
         header: "Außenaufbereitung",
-        price: "199",
-        text: "Unsere Dienstleistungen umfassen gründliche Fahrzeugwäsche, Lackaufbereitung, Felgen- und Reifenpflege, Versiegelung sowie Scheiben- und Scheinwerferpolitur. Für ein Auto, das nicht nur glänzt, sondern auch alle Blicke auf sich zieht.",
+        info: "Glanzvolle Pflege für Autolack.",
         src: "/services/exterior.jpg",  // Update with the correct path if needed
         width: 2500,
         height: 1667,
@@ -29,8 +27,7 @@ const data = [
     {
         id: 3,
         header: "Komplettaufbereitung",
-        price: "299",
-        text: "Unsere Rundum-Sorglos-Aufbereitung verwandelt Ihr Auto von innen und außen. Von Innenraumreinigung bis Lackpolitur, wir kümmern uns um alles, damit Ihr Fahrzeug in Topform erstrahlt. Gönnen Sie Ihrem Auto die Pflege, die es verdient.",
+        info: "Fahrzeugaufbereitung für innen und außen.",
         src: "/services/complete.jpg",  // Update with the correct path if needed
         width: 2500,
         height: 1667,
@@ -38,8 +35,7 @@ const data = [
     {
         id: 4,
         header: "Keramikversiegelung",
-        price: "299",
-        text: "Unsere Keramikversiegelung schützt Ihren Lack langanhaltend vor Umwelteinflüssen und Verunreinigungen. Ein unsichtbarer Schild, der Ihren Lack strahlen lässt und ihm das gewisse Extra verleiht. Verleihen Sie Ihrem Auto den Schutz, den es verdient.",
+        info: "Perfekt für langanhaltenden Lackschutz.",
         src: "/services/ceramic.jpg",  // Update with the correct path if needed
         width: 2500,
         height: 1667,
@@ -66,7 +62,7 @@ const Services = () => {
                                     <h1 className="text-2xl font-bold text-white break-words mt-5">
                                         {item.header}
                                     </h1>
-                                    <h1 className="text-muted-foreground">ab {item.price}€</h1>
+                                    <h1 className="text-white/60">{item.info}</h1>
                                 </div>
                                 {/* <p className="text-muted-foreground mt-5">{item.text}</p> */}
                                 <Link href="/">
