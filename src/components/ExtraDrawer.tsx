@@ -43,7 +43,7 @@ const extraService = [
     },
     {
         id: 5,
-        header: "Motorreinigung & Konservierung",
+        header: "Motorreinigung",
         price: "79,95",
         text: "Entfernung von Staub, Schmutz & Ölrückständen",
     },
