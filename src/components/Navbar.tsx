@@ -22,36 +22,36 @@ import { Film } from 'lucide-react'
 const components: { title: string; href: string; description: string }[] = [
     {
         title: "Alert Dialog",
-        href: "/docs/primitives/alert-dialog",
+        href: "/",
         description:
             "A modal dialog that interrupts the user",
     },
     {
         title: "Hover Card",
-        href: "/docs/primitives/hover-card",
+        href: "/",
         description:
             "For sighted users to preview content",
     },
     {
         title: "Progress",
-        href: "/docs/primitives/progress",
+        href: "/",
         description:
             "Displays an indicator showing the completion",
     },
     {
         title: "Scroll-area",
-        href: "/docs/primitives/scroll-area",
+        href: "/",
         description: "Visually or semantically separates content.",
     },
     {
         title: "Tabs",
-        href: "/docs/primitives/tabs",
+        href: "/",
         description:
             "A set of layered sections of content—known as tab",
     },
     {
         title: "Tooltip",
-        href: "/docs/primitives/tooltip",
+        href: "/",
         description:
             "A popup that displays information related to an element when the",
     },
