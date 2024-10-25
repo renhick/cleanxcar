@@ -28,16 +28,16 @@ const Footer = () => {
                         <div className='text-white'>
                             <h1 className='text-xl font-semibold'>Dienstleistungen</h1>
                             <div className='flex flex-col gap-1 mt-2'>
-                                <Link href="/">
+                                <Link href="/Innenraumaufbereitung">
                                     <p className='text-sm text-white/60'>Innenraumaufbereitung</p>
                                 </Link>
-                                <Link href="/">
+                                <Link href="/Aussenaufbereitung">
                                     <p className='text-sm text-white/60'>Außenaufbereitung</p>
                                 </Link>
-                                <Link href="/">
+                                <Link href="/Komplettaufbereitung">
                                     <p className='text-sm text-white/60'>Komplettaufbereitung</p>
                                 </Link>
-                                <Link href="/">
+                                <Link href="/Keramikversiegelung">
                                     <p className='text-sm text-white/60'>Keramikversiegelung</p>
                                 </Link>
                             </div>
@@ -45,10 +45,10 @@ const Footer = () => {
                         <div className='text-white'>
                             <h1 className='text-xl font-semibold'>Über Uns</h1>
                             <div className='flex flex-col gap-1 mt-2'>
-                                <Link href="/">
+                                <Link href="#about">
                                     <p className='text-sm text-white/60'>Bildergallerie</p>
                                 </Link>
-                                <Link href="/">
+                                <Link href="#about">
                                     <p className='text-sm text-white/60'>Bewertungen</p>
                                 </Link>
                             </div>
@@ -56,10 +56,10 @@ const Footer = () => {
                         <div className='text-white'>
                             <h1 className='text-xl font-semibold'>Kontakt</h1>
                             <div className='flex flex-col gap-1 mt-2'>
-                                <Link href="/">
+                                <Link href="#about">
                                     <p className='text-sm text-white/60'>Kontaktformular</p>
                                 </Link>
-                                <Link href="/">
+                                <Link href="#about">
                                     <p className='text-sm text-white/60'>Anfahrt</p>
                                 </Link>
                             </div>
