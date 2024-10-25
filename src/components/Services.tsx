@@ -15,6 +15,7 @@ const data = [
         src: "/services/interiour.jpg",
         width: 2500,
         height: 1667,
+        link: "/Innenraumaufbereitung"
     },
     {
         id: 2,
@@ -23,6 +24,7 @@ const data = [
         src: "/services/exterior.jpg",  // Update with the correct path if needed
         width: 2500,
         height: 1667,
+        link: "/Aussenaufbereitung"
     },
     {
         id: 3,
@@ -31,6 +33,7 @@ const data = [
         src: "/services/complete.jpg",  // Update with the correct path if needed
         width: 2500,
         height: 1667,
+        link: "/Komplettaufbereitung"
     },
     {
         id: 4,
@@ -39,6 +42,7 @@ const data = [
         src: "/services/ceramic.jpg",  // Update with the correct path if needed
         width: 2500,
         height: 1667,
+        link: "/Keramikversiegelung"
     },
 ];
 
@@ -65,7 +69,7 @@ const Services = () => {
                                     <h1 className="text-white/60">{item.info}</h1>
                                 </div>
                                 {/* <p className="text-muted-foreground mt-5">{item.text}</p> */}
-                                <Link href="/">
+                                <Link href={item.link}>
                                     <Button className="mt-5 flex items-center gap-2">
                                         Informationen und Bilder
                                         <ArrowRight className="w-5 h-5" />

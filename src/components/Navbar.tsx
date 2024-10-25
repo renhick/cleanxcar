@@ -16,48 +16,55 @@ import {
 import { cn } from '@/lib/utils'
 import MaxWidthWrapper from './MaxWidthWrapper'
 import { Button } from './ui/button'
-import { Film } from 'lucide-react'
+import { Film, Mail, Phone } from 'lucide-react'
 
 
 const components: { title: string; href: string; description: string }[] = [
     {
-        title: "Alert Dialog",
-        href: "/",
+        title: "Innenraumaufbereitung",
+        href: "/Innenraumaufbereitung",
         description:
-            "A modal dialog that interrupts the user",
+            "Professionelle Pflege des Innenraums.",
     },
     {
-        title: "Hover Card",
-        href: "/",
+        title: "Außenaufbereitung",
+        href: "/Aussenaufbereitung",
         description:
-            "For sighted users to preview content",
+            "Hochwertige Außenpflege für strahlenden Glanz.",
     },
     {
-        title: "Progress",
-        href: "/",
+        title: "Komplettaufbereitung",
+        href: "/Komplettaufbereitung",
         description:
-            "Displays an indicator showing the completion",
+            "Umfassende Reinigung von innen und außen",
     },
     {
-        title: "Scroll-area",
-        href: "/",
-        description: "Visually or semantically separates content.",
+        title: "Keramikversiegelung",
+        href: "/Keramikversiegelung",
+        description: "Langanhaltender Schutz durch Spezialversiegelung.",
     },
     {
-        title: "Tabs",
-        href: "/",
-        description:
-            "A set of layered sections of content—known as tab",
+        title: "Trockeneisreinigung",
+        href: "/Trockeneisreinigung",
+        description: "Intensive & schonende Reinigung.",
     },
-    {
-        title: "Tooltip",
-        href: "/",
-        description:
-            "A popup that displays information related to an element when the",
-    },
+    //    {
+    //         title: "Lederpflege & Reperatur",
+    //         href: "/Lederpflege",
+    //         description: "Lederreperaturen aller Art von Poster bis Fußmatten.",
+    //     },
 ]
 
 const Navbar = () => {
+
+    const handleCall = () => {
+        window.location.href = 'tel:015204737960';
+    };
+
+    const handleMail = () => {
+        window.location.href = 'mailto:info@cleanxcar.de';
+    }
+
     return (
 
         <div className='fixed bg-white w-full top-0 left-0 pt-5 border-b border-b-black/10 z-[100]'>
@@ -91,37 +98,36 @@ const Navbar = () => {
                                     <NavigationMenuTrigger>Kontakt</NavigationMenuTrigger>
                                     <NavigationMenuContent>
                                         <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                                            <li className="row-span-3">
+                                            <li className="row-span-3 bg-[url('/eray.jpg')] bg-cover bg-center rounded-md">
                                                 <NavigationMenuLink asChild>
                                                     <a
-                                                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                                                        href="/"
+                                                        className="flex h-full w-full select-none flex-col justify-end rounded-md p-6 no-underline outline-none focus:shadow-md"
+
                                                     >
-                                                        <div className="mb-2 mt-4 text-lg font-medium">
-                                                            shadcn/ui
+                                                        <div className="mb-2 mt-4 text-lg font-medium text-white">
+                                                            Eray Onur
                                                         </div>
-                                                        <p className="text-sm leading-tight text-muted-foreground">
-                                                            Beautifully designed components built with Radix UI and
-                                                            Tailwind CSS.
+                                                        <p className="text-sm leading-tight text-white/70">
+                                                            Geschäftsführer von CleanXCar.
                                                         </p>
                                                     </a>
                                                 </NavigationMenuLink>
                                             </li>
-                                            <ListItem href="/" title="Introduction">
-                                                Re-usable components built using Radix UI and Tailwind CSS.
+                                            <ListItem href="/" title="Instagram">
+                                                Bleibe auf dem neusten Stand. Erhalte Infos und Updates.
                                             </ListItem>
-                                            <ListItem href="/" title="Installation">
-                                                How to install dependencies and structure your app.
+                                            <ListItem href="/" title="Whatsapp">
+                                                Sie können mich unter 01520 4737960 erreichen.
                                             </ListItem>
-                                            <ListItem href="/" title="Typography">
-                                                Styles for headings, paragraphs, lists...etc
+                                            <ListItem href="/" title="Mail">
+                                                Ich antworte Ihnen binnen 24 Stunden unter info@cleanxcar.de
                                             </ListItem>
                                         </ul>
                                     </NavigationMenuContent>
                                 </NavigationMenuItem>
 
                                 <NavigationMenuItem>
-                                    <Link href="/" legacyBehavior passHref>
+                                    <Link href="#about" legacyBehavior passHref>
                                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                                             Über uns
                                         </NavigationMenuLink>
@@ -132,15 +138,15 @@ const Navbar = () => {
                     </div>
                     <div className='justify-end gap-2 w-full items-center hidden md:flex'>
                         <Link href="/">
-                            <Button variant="ghost">
-                                <Film className='w-5 h-5 text-primary' />
-                                <p className='sr-only'>Instagram</p>
+                            <Button variant="ghost" onClick={handleCall}>
+                                <Phone className='w-5 h-5' />
+                                <p className='sr-only'>Telefon</p>
                             </Button>
                         </Link>
                         <Link href="/">
-                            <Button variant="ghost">
-                                <Film className='w-5 h-5 text-primary' />
-                                <p className='sr-only'>Whatsapp</p>
+                            <Button variant="ghost" onClick={handleMail}>
+                                <Mail className='w-5 h-5' />
+                                <p className='sr-only'>Mail</p>
                             </Button>
                         </Link>
                     </div>
