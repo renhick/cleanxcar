@@ -12,7 +12,7 @@ const Banner = () => {
                         <PersonStanding className='w-10 h-10 text-white' />
                         <Earth className='w-10 h-10 text-white'/>
                     </div>
-                    <p className='mt-2 text-6xl font-semibold text-white'>Gemacht, um einen <br /> Unterschied zu machen.</p>
+                    <p className='mt-2 text-3xl md:text-6xl font-semibold text-white'>Gemacht, um einen <br /> Unterschied zu machen.</p>
                 </CardTitle>
                 <CardDescription></CardDescription>
             </CardHeader>
