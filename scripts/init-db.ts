@@ -1,4 +1,4 @@
-import sql from '../src/lib/db';
+import { prisma } from '../src/lib/prisma';
 
 const initialServices = [
   {
@@ -55,26 +55,13 @@ const initialServices = [
 
 async function initDB() {
   try {
-    // Erstelle Tabelle
-    await sql`
-      CREATE TABLE IF NOT EXISTS services (
-        id SERIAL PRIMARY KEY,
-        header VARCHAR(255) NOT NULL,
-        price VARCHAR(255) NOT NULL,
-        text TEXT NOT NULL
-      )
-    `;
-
     // Lösche existierende Einträge
-    await sql`DELETE FROM services`;
+    await prisma.service.deleteMany();
 
     // Füge initiale Services ein
-    for (const service of initialServices) {
-      await sql`
-        INSERT INTO services (header, price, text)
-        VALUES (${service.header}, ${service.price}, ${service.text})
-      `;
-    }
+    await prisma.service.createMany({
+      data: initialServices
+    });
 
     console.log('Datenbank erfolgreich initialisiert');
   } catch (error) {

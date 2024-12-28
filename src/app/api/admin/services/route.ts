@@ -1,18 +1,11 @@
 import { NextResponse } from 'next/server';
-import sql from '@/lib/db';
-
-interface Service {
-  id: string;
-  header: string;
-  price: string;
-  text: string;
-}
+import { prisma } from '@/lib/prisma';
 
 export async function GET() {
   try {
-    const services = await sql`
-      SELECT * FROM services ORDER BY id ASC
-    `;
+    const services = await prisma.service.findMany({
+      orderBy: { id: 'asc' }
+    });
     return NextResponse.json({ services });
   } catch (error: any) {
     console.error('Database Error:', error);
@@ -22,12 +15,14 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    const newService = await request.json();
-    const [service] = await sql`
-      INSERT INTO services (header, price, text)
-      VALUES (${newService.header}, ${newService.price}, ${newService.text})
-      RETURNING *
-    `;
+    const data = await request.json();
+    const service = await prisma.service.create({
+      data: {
+        header: data.header,
+        price: data.price,
+        text: data.text
+      }
+    });
     return NextResponse.json(service);
   } catch (error: any) {
     return NextResponse.json({ error: 'Fehler beim Erstellen' }, { status: 500 });
@@ -36,16 +31,16 @@ export async function POST(request: Request) {
 
 export async function PUT(request: Request) {
   try {
-    const service = await request.json();
-    const [updated] = await sql`
-      UPDATE services 
-      SET header = ${service.header}, 
-          price = ${service.price}, 
-          text = ${service.text}
-      WHERE id = ${service.id}
-      RETURNING *
-    `;
-    return NextResponse.json(updated);
+    const data = await request.json();
+    const service = await prisma.service.update({
+      where: { id: parseInt(data.id) },
+      data: {
+        header: data.header,
+        price: data.price,
+        text: data.text
+      }
+    });
+    return NextResponse.json(service);
   } catch (error) {
     return NextResponse.json({ error: 'Fehler beim Aktualisieren' }, { status: 500 });
   }
@@ -54,9 +49,9 @@ export async function PUT(request: Request) {
 export async function DELETE(request: Request) {
   try {
     const { id } = await request.json();
-    await sql`
-      DELETE FROM services WHERE id = ${id}
-    `;
+    await prisma.service.delete({
+      where: { id: parseInt(id) }
+    });
     return NextResponse.json({ success: true });
   } catch (error) {
     return NextResponse.json({ error: 'Fehler beim Löschen' }, { status: 500 });
