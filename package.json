@@ -11,6 +11,7 @@
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.1",
     "@radix-ui/react-dialog": "^1.1.1",
+    "@radix-ui/react-label": "^2.1.1",
     "@radix-ui/react-navigation-menu": "^1.2.0",
     "@radix-ui/react-scroll-area": "^1.1.0",
     "@radix-ui/react-separator": "^1.1.0",
@@ -24,6 +25,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.2.13",
+    "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.400.0",
     "next": "14.2.4",
     "react": "^18",
@@ -34,6 +36,7 @@
     "vaul": "^0.9.1"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
