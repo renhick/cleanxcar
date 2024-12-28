@@ -11,9 +11,10 @@ interface Service {
 export async function GET() {
   try {
     const services = (await kv.get<Service[]>('services')) || [];
-    return NextResponse.json({ services });
+    return NextResponse.json({ services: Array.isArray(services) ? services : [] });
   } catch (error) {
-    return NextResponse.json({ error: 'Fehler beim Laden der Dienstleistungen' }, { status: 500 });
+    console.error('KV Error:', error);
+    return NextResponse.json({ services: [] }, { status: 200 });
   }
 }
 

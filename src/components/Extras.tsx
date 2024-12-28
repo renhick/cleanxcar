@@ -20,10 +20,10 @@ const Extras = () => {
             try {
                 const response = await fetch('/api/admin/services');
                 const data = await response.json();
-                // Nur die ersten 4 Dienstleistungen für Innenraum anzeigen
-                setExtraService(data.services.slice(0, 4));
+                setExtraService(Array.isArray(data.services) ? data.services.slice(0, 4) : []);
             } catch (error) {
-                console.error('Fehler beim Laden der Dienstleistungen:', error);
+                console.error('Fehler:', error);
+                setExtraService([]);
             }
         };
 
