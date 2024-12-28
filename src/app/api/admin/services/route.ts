@@ -1,5 +1,5 @@
-import { kv } from '@vercel/kv';
 import { NextResponse } from 'next/server';
+import sql from '@/lib/db';
 
 interface Service {
   id: string;
@@ -10,43 +10,42 @@ interface Service {
 
 export async function GET() {
   try {
-    const services = (await kv.get<Service[]>('services')) || [];
-    return NextResponse.json({ services: Array.isArray(services) ? services : [] });
-  } catch (error) {
-    console.error('KV Error:', error);
-    return NextResponse.json({ services: [] }, { status: 200 });
+    const services = await sql`
+      SELECT * FROM services ORDER BY id ASC
+    `;
+    return NextResponse.json({ services });
+  } catch (error: any) {
+    console.error('Database Error:', error);
+    return NextResponse.json({ services: [], error: error.message }, { status: 500 });
   }
 }
 
 export async function POST(request: Request) {
   try {
     const newService = await request.json();
-    const services = (await kv.get<Service[]>('services')) || [];
-    
-    const maxId = Math.max(...services.map((s: any) => parseInt(s.id)), 0);
-    newService.id = (maxId + 1).toString();
-    
-    services.push(newService);
-    await kv.set('services', services);
-    
-    return NextResponse.json(newService);
-  } catch (error) {
-    return NextResponse.json({ error: 'Fehler beim Erstellen der Dienstleistung' }, { status: 500 });
+    const [service] = await sql`
+      INSERT INTO services (header, price, text)
+      VALUES (${newService.header}, ${newService.price}, ${newService.text})
+      RETURNING *
+    `;
+    return NextResponse.json(service);
+  } catch (error: any) {
+    return NextResponse.json({ error: 'Fehler beim Erstellen' }, { status: 500 });
   }
 }
 
 export async function PUT(request: Request) {
   try {
-    const updatedService = await request.json();
-    const services = (await kv.get<Service[]>('services')) || [];
-    
-    const index = services.findIndex((s) => s.id === updatedService.id);
-    if (index !== -1) {
-      services[index] = updatedService;
-      await kv.set('services', services);
-    }
-    
-    return NextResponse.json(updatedService);
+    const service = await request.json();
+    const [updated] = await sql`
+      UPDATE services 
+      SET header = ${service.header}, 
+          price = ${service.price}, 
+          text = ${service.text}
+      WHERE id = ${service.id}
+      RETURNING *
+    `;
+    return NextResponse.json(updated);
   } catch (error) {
     return NextResponse.json({ error: 'Fehler beim Aktualisieren' }, { status: 500 });
   }
@@ -55,11 +54,9 @@ export async function PUT(request: Request) {
 export async function DELETE(request: Request) {
   try {
     const { id } = await request.json();
-    const services = (await kv.get<Service[]>('services')) || [];
-    
-    const filteredServices = services.filter((s) => s.id !== id);
-    await kv.set('services', filteredServices);
-    
+    await sql`
+      DELETE FROM services WHERE id = ${id}
+    `;
     return NextResponse.json({ success: true });
   } catch (error) {
     return NextResponse.json({ error: 'Fehler beim Löschen' }, { status: 500 });
