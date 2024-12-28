@@ -127,31 +127,32 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-background p-8 mt-20">
+    <div className="min-h-screen bg-background p-4 sm:p-8 mt-20 sm:mt-20">
       <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold">Admin Dashboard</h1>
-          <Button variant="outline" onClick={handleLogout}>
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+          <h1 className="text-2xl sm:text-3xl font-bold">Admin Dashboard</h1>
+          <Button variant="outline" onClick={handleLogout} className="w-full sm:w-auto">
             <LogOut className="mr-2 h-4 w-4" />
             Abmelden
           </Button>
         </div>
 
-        {/* Dienstleistungen Verwaltung */}
         <Card className="mb-8">
           <CardHeader>
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <CardTitle>Dienstleistungen</CardTitle>
-              <Button onClick={() => setShowNewServiceForm(true)}>
+              <Button 
+                onClick={() => setShowNewServiceForm(true)}
+                className="w-full sm:w-auto"
+              >
                 <Plus className="mr-2 h-4 w-4" />
                 Neue Dienstleistung
               </Button>
             </div>
           </CardHeader>
           <CardContent>
-            {/* Neue Dienstleistung Formular */}
             {showNewServiceForm && (
-              <div className="mb-6 p-4 border rounded-lg">
+              <div className="mb-6 p-3 sm:p-4 border rounded-lg">
                 <h3 className="text-lg font-semibold mb-4">Neue Dienstleistung</h3>
                 <div className="space-y-4">
                   <div>
@@ -178,9 +179,18 @@ export default function AdminDashboard() {
                       onChange={(e) => setNewService({...newService, text: e.target.value})}
                     />
                   </div>
-                  <div className="flex space-x-2">
-                    <Button onClick={handleAddService}>Speichern</Button>
-                    <Button variant="outline" onClick={() => setShowNewServiceForm(false)}>
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    <Button 
+                      onClick={handleAddService}
+                      className="w-full sm:w-auto"
+                    >
+                      Speichern
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      onClick={() => setShowNewServiceForm(false)}
+                      className="w-full sm:w-auto"
+                    >
                       Abbrechen
                     </Button>
                   </div>
@@ -188,10 +198,9 @@ export default function AdminDashboard() {
               </div>
             )}
 
-            {/* Dienstleistungen Liste */}
             <div className="space-y-4">
               {services.map((service) => (
-                <div key={service.id} className="p-4 border rounded-lg">
+                <div key={service.id} className="p-3 sm:p-4 border rounded-lg">
                   {editingService?.id === service.id ? (
                     <div className="space-y-4">
                       <div>
@@ -227,34 +236,47 @@ export default function AdminDashboard() {
                           })}
                         />
                       </div>
-                      <div className="flex space-x-2">
-                        <Button onClick={handleSaveEdit}>
+                      <div className="flex flex-col sm:flex-row gap-2">
+                        <Button 
+                          onClick={handleSaveEdit}
+                          className="w-full sm:w-auto"
+                        >
                           <Save className="mr-2 h-4 w-4" />
                           Speichern
                         </Button>
-                        <Button variant="outline" onClick={() => setEditingService(null)}>
+                        <Button 
+                          variant="outline" 
+                          onClick={() => setEditingService(null)}
+                          className="w-full sm:w-auto"
+                        >
                           <X className="mr-2 h-4 w-4" />
                           Abbrechen
                         </Button>
                       </div>
                     </div>
                   ) : (
-                    <div className="flex justify-between items-start">
-                      <div>
+                    <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
+                      <div className="w-full sm:w-auto">
                         <h3 className="font-semibold">{service.header}</h3>
                         <p className="text-sm text-muted-foreground">{service.text}</p>
                         <p className="font-medium mt-1">{service.price}</p>
                       </div>
-                      <div className="flex gap-2">
-                        <Button variant="outline" onClick={() => handleEditService(service)}>
+                      <div className="flex gap-2 w-full sm:w-auto">
+                        <Button 
+                          variant="outline" 
+                          onClick={() => handleEditService(service)}
+                          className="flex-1 sm:flex-none"
+                        >
                           <Edit className="h-4 w-4" />
+                          <span className="ml-2 sm:hidden">Bearbeiten</span>
                         </Button>
                         <Button 
                           variant="outline" 
                           onClick={() => handleDeleteService(service.id)}
-                          className="text-red-500 hover:text-red-700"
+                          className="flex-1 sm:flex-none text-red-500 hover:text-red-700"
                         >
                           <Trash2 className="h-4 w-4" />
+                          <span className="ml-2 sm:hidden">Löschen</span>
                         </Button>
                       </div>
                     </div>
